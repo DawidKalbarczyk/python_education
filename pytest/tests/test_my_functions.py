@@ -1,6 +1,6 @@
 import pytest
 import time
-import source.my_functions as my_functions
+import pytest.source.my_functions as my_functions
 
 def test_add():
     result = my_functions.add(2, 3)

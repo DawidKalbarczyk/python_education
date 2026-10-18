@@ -2,7 +2,7 @@
 
 import pytest
 
-from source.school import Classroom, Person, Student, Teacher, TooManyStudents
+from pytest.source.school import Classroom, Person, Student, Teacher, TooManyStudents
 
 
 # Imiona do zapełnienia sali; Ciri zostaje kandydatką na dodatkowe miejsce.

@@ -1,5 +1,5 @@
-.pytest_cache
-.venv
-source/__pycache__
-tests/__pycache__
-tests/.pytest_cache
+pytest/.pytest_cache
+pytest/.venv
+pytest/source/__pycache__
+pytest/tests/__pycache__
+pytest/tests/.pytest_cache
