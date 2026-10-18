@@ -2,20 +2,21 @@ import time
 
 from celery.result import AsyncResult
 
-from worker import random_number, app
+from worker import movie_info_a, movie_info_b, movie_info_c, combine_parts
 
-time.sleep(5)
+from celery import group, chord
 
-result_future = random_number.delay(100)
-result = AsyncResult(result_future.id, app=app)
+prompt = "Tell me about the movie Inception"
 
-print('Submitted task with ID:', result.id)
-print('Task state:', result.state)
+header = group(
+    movie_info_a.s(prompt),
+    movie_info_b.s(prompt),
+    movie_info_c.s(prompt)
+)
 
-while True:
-    if result.ready():
-        print('Task completed with result:', result.get())
-        break
-    else:
-        print('Task state:', result.state)
-        time.sleep(1)
+result = chord(header)(combine_parts.s())
+
+combined = result.get()
+
+print("Combined movie information:")
+print(combined)
