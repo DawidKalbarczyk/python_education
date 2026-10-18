@@ -35,18 +35,20 @@ services:
 
   celery_worker:
     build: .
-    command: celery -A worker worker --loglevel=info
+    command: celery -A worker-schedule worker --loglevel=info
     env_file: .env
     depends_on:
       rabbitmq:
         condition: service_healthy
       redis:
         condition: service_healthy
+    volumes:
+      - ./data:/data
 
 
-  client:
+  celery_beat:
     build: .
-    command: python client.py
+    command: celery -A worker-schedule beat --loglevel=info
     env_file: .env
     depends_on:
       rabbitmq:
@@ -55,6 +57,8 @@ services:
         condition: service_healthy
       celery_worker:
         condition: service_started
+    volumes:
+      - ./data:/data
 
 volumes:
   rabbitmq_data:
