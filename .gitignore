@@ -9,6 +9,11 @@ celery-rabbit-redis/.env
 firstproject/firstapp/migrations/__pycache__
 firstproject/firstapp/__pycache__
 firstproject/firstproject/__pycache__
+
 littlelemon/littlelemon/__pycache__
 littlelemon/restaurant/__pycache__
 littlelemon/restaurant/migrations/__pycache__
+
+tutorialproject/todos/__pycache__
+tutorialproject/todos/migrations
+tutorialproject/core/__pycache__
