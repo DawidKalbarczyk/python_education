@@ -1,5 +1,7 @@
 pytest/.pytest_cache
-pytest/.venv
+.venv
 pytest/source/__pycache__
 pytest/tests/__pycache__
 pytest/tests/.pytest_cache
+
+celery-rabbit-redis/.env
